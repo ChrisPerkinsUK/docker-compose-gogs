@@ -1,0 +1,36 @@
+version: '2.3'
+
+services:
+
+  gogs:
+    image: gogs/gogs:latest
+    hostname: gogs.chris-perkins.uk
+    ports:
+      - "10022:22"
+      - "127.0.0.20:10080:3000"
+    volumes:
+      - type: bind
+        source: ./data
+        target: /data
+    networks:
+      - gogsnet
+
+  postgres:
+    image: postgres:10.5-alpine
+    volumes:
+      - type: volume
+        source: postgres_data
+        target: /var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=admin
+    # - POSTGRES_USER=postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - gogsnet
+
+networks: 
+  gogsnet:
+
+volumes:
+  postgres_data:
