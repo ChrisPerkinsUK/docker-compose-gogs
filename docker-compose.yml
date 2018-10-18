@@ -4,14 +4,40 @@ services:
 
   gogs:
     image: gogs/gogs:latest
+
+    # This registers the containers hostname on the containers internal
+    # /etc/hosts file as ´gogs.chris-prkins.uk´ it doesn´t need to be
+    # set to the sites external domainname and won´t influence incoming
+    # external trafic. This is best done using a reverse proxy controler
+    # (voir nginx)
     hostname: gogs.chris-perkins.uk
     ports:
       - "10022:22"
+
+      # Maps the external ip:port 127.0.0.1:10080 to the containers port
+      # on 3000. Change 127.0.0.20:10080  to match the ip address and
+      # port of your application.
       - "127.0.0.20:10080:3000"
+
+    # Gogs Official documenttation recomends using a bind mount in
+    # order to store and access all of Gogs data and configuration.
+    # This is to allow you to edit the configuration files more directly
+    # and becaue the directory structure makes it difficult to separate
+    # out data and configuration files easily in to seperate volumes or
+    # bind mounts. This is fine for local development, but if you are
+    # using Gogs in production you may want to move things into a volume.
+    # One way of achieving this wwould be to seal your prefered
+    # configuration into a derived Gogs image and create a volume for
+    # the data. Comment out the bind mount, adjust the volue path
+    # accordingly and uncomment the volume. 
     volumes:
       - type: bind
         source: ./data
         target: /data
+
+      #- type: volume
+      #  source: gogs_data
+      #  target: /data
     networks:
       - gogsnet
 
@@ -34,3 +60,4 @@ networks:
 
 volumes:
   postgres_data:
+  #googs_data:
