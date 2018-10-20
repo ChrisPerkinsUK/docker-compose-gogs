@@ -36,8 +36,8 @@ containers:
 docker logs container_name
 
 usermod: no changes
-Oct 20 10:46:13 syslogd started: BusyBox v1.28.4
-2018/10/20 10:47:16 [TRACE] Custom path: /data/gogs
+Oct 20 10:46:13 syslogd started: BusyBox v1.28.4 \
+2018/10/20 10:47:16 [TRACE] Custom path: /data/gogs \
 2018/10/20 10:47:16 [TRACE] Log path: /app/gogs/log
 2018/10/20 10:47:16 [TRACE] Build Time: 2018-09-16 03:57:36 UTC
 2018/10/20 10:47:16 [TRACE] Build Git Hash: 3a4c981e3167875a3b60d0cee00ee85272608439
