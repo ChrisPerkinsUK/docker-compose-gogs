@@ -7,7 +7,7 @@ Gogs is a selfhosted Git Service. It is lightwieght and ideal for running on you
 
 Official website:        https://gogs.io \
 Gogs Documentation:      https://gogs.io/docs \
-Gogs on Docker Hub       https://hub.docker.com/r/gogs/gogs/ \
+Gogs on Docker Hub       https://hub.docker.com/r/gogs/gogs/
 
 ## QUICK START COMMANDS
 
@@ -27,11 +27,15 @@ docker containers ls
 
 containers: \
        docker-compose-gogs_gogs_1 \
-       docker-compose-gogs_postgres_1 \
+       docker-compose-gogs_postgres_1
 
 #### View Logs (whilst running)
 
 docker logs container_name
+
+Example:
+
+docker logs docker-compose-gogs_gogs_1
 
 usermod: no changes
 Oct 20 10:46:13 syslogd started: BusyBox v1.28.4 \
@@ -40,7 +44,7 @@ Oct 20 10:46:13 syslogd started: BusyBox v1.28.4 \
 2018/10/20 10:47:16 [TRACE] Build Time: 2018-09-16 03:57:36 UTC \
 2018/10/20 10:47:16 [TRACE] Build Git Hash: 3a4c981e3167875a3b60d0cee00ee85272608439 \
 2018/10/20 10:47:16 [TRACE] Log Mode: File (Trace) \
-2018/10/20 10:47:16 [ INFO] gogs.mydomain.me 0.11.66.0916 \
+2018/10/20 10:47:16 [ INFO] gogs.mydomain.me 0.11.66.0916
 
 ## How to use docker-compose-gogs
 
