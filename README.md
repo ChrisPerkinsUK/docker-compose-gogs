@@ -5,11 +5,9 @@ A docker-compose configuration for setting up Gogs source control repository man
 
 Gogs is a selfhosted Git Service. It is lightwieght and ideal for running on your local machine or over a local network. This installation does not support HTTPS but is effective and can serve as a part of a local component of a CICD system.
 
-Official website:        https://gogs.io
-
-Gogs Documentation:      https://gogs.io/docs
-
-Gogs on Docker Hub       https://hub.docker.com/r/gogs/gogs/
+Official website:        https://gogs.io \
+Gogs Documentation:      https://gogs.io/docs \
+Gogs on Docker Hub       https://hub.docker.com/r/gogs/gogs/ \
 
 ## QUICK START COMMANDS
 
@@ -27,9 +25,9 @@ All data an logs will remain in the ./data directory after shut down.
 
 docker containers ls
 
-containers:
-       docker-compose-gogs_gogs_1
-       docker-compose-gogs_postgres_1
+containers: \
+       docker-compose-gogs_gogs_1 \
+       docker-compose-gogs_postgres_1 \
 
 #### View Logs (whilst running)
 
@@ -38,11 +36,11 @@ docker logs container_name
 usermod: no changes
 Oct 20 10:46:13 syslogd started: BusyBox v1.28.4 \
 2018/10/20 10:47:16 [TRACE] Custom path: /data/gogs \
-2018/10/20 10:47:16 [TRACE] Log path: /app/gogs/log
-2018/10/20 10:47:16 [TRACE] Build Time: 2018-09-16 03:57:36 UTC
-2018/10/20 10:47:16 [TRACE] Build Git Hash: 3a4c981e3167875a3b60d0cee00ee85272608439
-2018/10/20 10:47:16 [TRACE] Log Mode: File (Trace)
-2018/10/20 10:47:16 [ INFO] gogs.mydomain.me 0.11.66.0916
+2018/10/20 10:47:16 [TRACE] Log path: /app/gogs/log \
+2018/10/20 10:47:16 [TRACE] Build Time: 2018-09-16 03:57:36 UTC \
+2018/10/20 10:47:16 [TRACE] Build Git Hash: 3a4c981e3167875a3b60d0cee00ee85272608439 \
+2018/10/20 10:47:16 [TRACE] Log Mode: File (Trace) \
+2018/10/20 10:47:16 [ INFO] gogs.mydomain.me 0.11.66.0916 \
 
 ## How to use docker-compose-gogs
 
@@ -72,15 +70,13 @@ or
 
 http://127.0.0.1:10080
 
-To use a specific ip on the host machine uncomment the entry:
+To use a specific ip on the host machine leave the entry below uncommented in the docker-compose.yml file and replace th ip portion with the ip address of the host machine:
 
 - 127.0.0.20:10080
 
-under the ports section of the docker-compose file prior to starting, change the ip address 127.0.0.20 to your desired ip address and comment out the line:
+To allow any localhost or loop back ip address to direct traffic to Gogs, prior to starting, comment out the above line under the ports section of the docker-compose file by placing a hash infront of it. Then uncomment the line below, in the docker-compose file, by removing the preceeding hash:
 
 - 10080:10080
-
-by placing a hash in front of it. Otherwise remove the line entirely.
 
 ## Filling in the Form for the initial install page
 
