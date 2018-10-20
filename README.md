@@ -5,7 +5,7 @@ A docker-compose configuration for setting up Gogs source control repository man
 
 ## What is Gogs
 
-Gogs is a selfhosted Git Service. It is lightwieght and ideal for running on your local machine or over a local network. This installation does not support HTTPS but is effective and can serve as a part of a local component of a CICD system.
+Gogs is a selfhosted Git Service. It is lightweight and ideal for running on your local machine or over a local network. This installation does not support HTTPS but is effective and can serve as a part of a local component of a CICD system.
 
 Official website:        https://gogs.io \
 Gogs Documentation:      https://gogs.io/docs \
@@ -23,7 +23,7 @@ Gogs on Docker Hub       https://hub.docker.com/r/gogs/gogs/
 
 > docker-compose down
 
-All data an logs will remain in the ./data directory after shut down.
+All data and logs will remain in the ./data directory after shut down.
 
 #### List Containers (whilst running)
 
@@ -89,15 +89,15 @@ To allow any localhost or loop back ip address to direct traffic to Gogs, prior 
 
 ## Persisting data
 
-When working with containers and specifically in docker you can't write data to images and as containers them selves are designed to be ephemeral they are not persistant enough them selves to store data past their initial use. For this reason persistent data needs to be seperated out from the image and the container. The pattern for this is generally refered to as a volume. Volumes are persistent and still exist after the container is destroyed and can be associated with new containers as needed. Thus if the container or system dies the data survives can be backed up coppied or continue association with other containers cloned from the same image.
+When working with containers and specifically in docker data cannot be written to images and as containers are designed to be ephemeral they do not persist long enough to store data past their initial use. For this reason persistent data needs to be seperated out from the image and the container. The pattern for this is generally refered to as a volume. Volumes are persistent and still exist after the container is destroyed and can be associated with new containers as needed. Thus if the container or system dies the data survives can be backed up coppied or continue association with other containers cloned from the same image.
 
 Volumes come in two forms 'volumes' and 'bind mounts'
 
-  Volumes are typically stored in a secure database - This is recomended for production
+  Volumes are typically stored in a secure database - This is recommended for production
 
   Bind Mounts are a direct 'mirror' association between the file system of the host machine and that of the container - This is recommended for development as it allows direct manipulation of active system files.
 
-Gogs Official documenttation recomends using a bind mount in order to store and access all of Gogs data and configuration. This is to allow you to edit the configuration files more directly and becaue the directory structure makes it difficult to separate out data and configuration files easily in to seperate volumes or bind mounts. This is fine for local development, but if you are using Gogs in production you may want to move things into a volume. One way of achieving this wwould be to seal your prefered configuration into a derived Gogs image and create a volume for the data. Comment out the bind mount, adjust the volue path accordingly and uncomment the volume. 
+Gogs Official documentation recommends using a bind mount in order to store and access all of Gogs data and configuration. This is to allow you to edit the configuration files more directly and because the directory structure makes it difficult to separate out data and configuration files easily into seperate volumes or bind mounts. This is fine for local development, but if you are using Gogs in production you may want to move things into a volume. One way of achieving this would be to seal your preferred configuration into a derived Gogs image and create a volume for the data. Comment out the bind mount, adjust the volume path accordingly and uncomment the volume. 
 
     volumes:
       - type: bind
@@ -108,6 +108,8 @@ Gogs Official documenttation recomends using a bind mount in order to store and 
       #  source: gogs_data
       #  target: /data
 
+
+
 # Filling in the Form for the initial install page
 
 The first time you start up Gogs you need to fill in a form to tell Gogs how you want it to be configured. The following notes should help demistify some of the less obvious parts of the form.
@@ -117,7 +119,7 @@ The first time you start up Gogs you need to fill in a form to tell Gogs how you
 This installation uses the official Postgres database image from docker hub.
 https://hub.docker.com/_/postgres/
 
-At the top of the form is a section for Databse settings. For this configuration enter the following details:
+At the top of the form is a section for Database settings. For this configuration enter the following details:
 
 #### Database Type:
 > Database Type: PostgresSQL
@@ -198,7 +200,7 @@ Select Options as desired
 
 #### Admin Account Settings
 
-Make sure you set up an admin user dispite the comment that informs that this is not needed. As this instance of Gogs is inside a container you will need to create the admin user to access it.
+Make sure you set up an admin user despite the comment that informs that this is not needed. As this instance of Gogs is inside a container you will need to create the admin user to access it.
 
 
 # Enjoy! Chris Perkins
