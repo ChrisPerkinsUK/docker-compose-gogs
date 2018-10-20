@@ -130,7 +130,7 @@ You may wish to change this for the following reasons:
 ##### Run User: Leave as git
 > Run User: git
 
-##### Domain: Enter your domain name here.
+##### Domain: Enter your domain name here
 > Domain: mydomain.me
 
 ##### SSH Port: Leave at port 22
