@@ -54,15 +54,13 @@ Example:
 
 Open the (Terminal) comandline window in the docker-compose-gogs directory and type:
 
-#### 2
-
 > docker-compose up -d
 
-#### 3
+#### 2
 
 Wait a few minutes while gogs creates ssh certificates instantiates git and configuration, data, and log directories.
 
-#### 4
+#### 3
 
 Open a browser and enter the ip address of your server followed by the port 10080
 
