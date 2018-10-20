@@ -13,17 +13,17 @@ Gogs on Docker Hub       https://hub.docker.com/r/gogs/gogs/
 
 #### Start
 
-docker-compose up -d
+> docker-compose up -d
 
 #### Stop
 
-docker-compose down
+> docker-compose down
 
 All data an logs will remain in the ./data directory after shut down.
 
 #### List Containers (whilst running)
 
-docker containers ls
+> docker containers ls
 
 containers: \
        docker-compose-gogs_gogs_1 \
@@ -31,20 +31,20 @@ containers: \
 
 #### View Logs (whilst running)
 
-docker logs container_name
+> docker logs container_name
 
 Example:
 
-docker logs docker-compose-gogs_gogs_1
+> docker logs docker-compose-gogs_gogs_1
 
-usermod: no changes
-Oct 20 10:46:13 syslogd started: BusyBox v1.28.4 \
-2018/10/20 10:47:16 [TRACE] Custom path: /data/gogs \
-2018/10/20 10:47:16 [TRACE] Log path: /app/gogs/log \
-2018/10/20 10:47:16 [TRACE] Build Time: 2018-09-16 03:57:36 UTC \
-2018/10/20 10:47:16 [TRACE] Build Git Hash: 3a4c981e3167875a3b60d0cee00ee85272608439 \
-2018/10/20 10:47:16 [TRACE] Log Mode: File (Trace) \
-2018/10/20 10:47:16 [ INFO] gogs.mydomain.me 0.11.66.0916
+> usermod: no changes
+> Oct 20 10:46:13 syslogd started: BusyBox v1.28.4 \
+> 2018/10/20 10:47:16 [TRACE] Custom path: /data/gogs \
+> 2018/10/20 10:47:16 [TRACE] Log path: /app/gogs/log \
+> 2018/10/20 10:47:16 [TRACE] Build Time: 2018-09-16 03:57:36 UTC \
+> 2018/10/20 10:47:16 [TRACE] Build Git Hash: 3a4c981e3167875a3b60d0cee00ee85272608439 \
+> 2018/10/20 10:47:16 [TRACE] Log Mode: File (Trace) \
+> 2018/10/20 10:47:16 [ INFO] gogs.mydomain.me 0.11.66.0916
 
 ## How to use docker-compose-gogs
 
@@ -56,7 +56,7 @@ Open the (Terminal) comandline window in the docker-compose-gogs directory and t
 
 #### 2
 
-docker-compose up -d
+> docker-compose up -d
 
 #### 3
 
@@ -76,11 +76,11 @@ http://127.0.0.1:10080
 
 To use a specific ip on the host machine leave the entry below uncommented in the docker-compose.yml file and replace th ip portion with the ip address of the host machine:
 
-- 127.0.0.20:10080
+> \- 127.0.0.20:10080
 
 To allow any localhost or loop back ip address to direct traffic to Gogs, prior to starting, comment out the above line under the ports section of the docker-compose file by placing a hash infront of it. Then uncomment the line below, in the docker-compose file, by removing the preceeding hash:
 
-- 10080:10080
+> \- 10080:10080
 
 ## Filling in the Form for the initial install page
 
@@ -94,24 +94,24 @@ https://hub.docker.com/_/postgres/
 At the top of the form is a section for Databse settings. For this configuration enter the following details:
 
 ##### Database Type:
-Database Type: PostgresSQL
+> Database Type: PostgresSQL
 
 ##### Host:
-Host: postgres:5432
+> Host: postgres:5432
 
 This must match the name of the database service in the docker-compose.yml file and the internal port port of the Postgres container
 
 ##### User:
-User: postgres
+> User: postgres
 
 ##### Password:
-Password: admin
+> Password: admin
 
 ##### Database Name:
-Database Name: postgres
+> Database Name: postgres
 
 ##### SSL Mode:
-SSL Mode: Disabled
+> SSL Mode: Disabled
 
 #### Application General settings
 
@@ -121,7 +121,7 @@ Application Name: Your Application Name (What ever you Like)
 ##### Repository Root Path:
 Where the repositories will be stored inside the container. This will be mapped to the Bind Mount and will be written to a local directory on the host machine. Best to leave it as it is unless you have a specific need to change it.
 
-Repository Root Path: /data/git/gogs-repositories
+> Repository Root Path: /data/git/gogs-repositories
 
 You may wish to change this for the following reasons:
 
@@ -130,29 +130,31 @@ You may wish to change this for the following reasons:
 2) To use volumes instead of bind mounts or a combination of both to separate concerns as in usecase 1)
 
 ##### Run User: Leave as git
-Run User: git
+> Run User: git
 
 ##### Domain: Enter your domain name here.
-Domain: mydomain.me
+> Domain: mydomain.me
 
 ##### SSH Port: Leave at port 22
-SSH Port: 22
+> SSH Port: 22
 
 ##### Use Bulitin SSH Server: Not compatible with the current Docker container
-Use Bulitin SSH Server: Do not tick
+> Use Bulitin SSH Server: Do not check this box
 
 ##### HTTP Port: Leave the port as the internal port of the container
-HTTP Port: 3000
+> HTTP Port: 3000
 
 ##### Application URL: (Same as Domain:) External domain : Port on the host machine mapped to the container.
-Application URL: http://mydomain.me:10080
+> Application URL: http://mydomain.me:10080
 
 ##### Log Path:
 Leave as is unless you want to use separate bind mounts or volumes for 'data', 'config' and 'logs'. See Repository Root Path:
 
+> Log Path: /app/gogs/log
+
 ##### Enable Console Mode: Leave disabled
 
-Log Path: /app/gogs/log
+> Enable Console Mode: Do not check this box
 
 #### Email Service Settings
 Untested so far just leave blank unless you specifically want to use with an email server.
