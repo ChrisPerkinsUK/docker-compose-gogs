@@ -1,0 +1,2 @@
+Make sure the data folder is in place or the build will fail
+because the data directory is not in place for the bind mount.
