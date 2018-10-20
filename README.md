@@ -6,7 +6,9 @@ A docker-compose configuration for setting up Gogs source control repository man
 Gogs is a selfhosted Git Service. It is lightwieght and ideal for running on your local machine or over a local network. This installation does not support HTTPS but is effective and can serve as a part of a local component of a CICD system.
 
 Official website:        https://gogs.io
+
 Gogs Documentation:      https://gogs.io/docs
+
 Gogs on Docker Hub       https://hub.docker.com/r/gogs/gogs/
 
 ## QUICK START COMMANDS
