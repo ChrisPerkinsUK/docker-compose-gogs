@@ -14,9 +14,10 @@ services:
     ports:
       - "10022:22"
 
-      # Maps the external ip:port 127.0.0.1:10080 to the containers port
+      # Maps the external ip:port 127.0.0.20:10080 to the containers port
       # on 3000. Change 127.0.0.20:10080  to match the ip address and
       # port of your application.
+      #- "10080:3000"
       - "127.0.0.20:10080:3000"
 
     # Gogs Official documenttation recomends using a bind mount in
