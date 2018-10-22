@@ -81,7 +81,7 @@ http://127.0.0.1:10080
 
 To use a specific ip on the host machine leave the entry below uncommented in the docker-compose.yml file and replace th ip portion with the ip address of the host machine:
 
-> \- 127.0.0.20:10080
+> \- 127.0.0.20:10080:3000
 
 To allow any localhost or loop back ip address to direct traffic to Gogs, prior to starting, comment out the above line under the ports section of the docker-compose file by placing a hash infront of it. Then uncomment the line below, in the docker-compose file, by removing the preceeding hash:
 
